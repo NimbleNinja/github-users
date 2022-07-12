@@ -1,0 +1,46 @@
+.second-screen {
+  padding-left: 20px;
+}
+
+.user-info {
+  padding: 10px;
+
+  &__row {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  &__avatar {
+    width: 160px;
+    height: 160px;
+    margin-right: 20px;
+  }
+}
+
+.repos {
+  &__list {
+    list-style: none;
+    height: 350px;
+    overflow-y: scroll;
+  }
+}
+
+.link {
+  color: #000000;
+  text-decoration: none;
+}
+
+.repo {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+
+  &:hover {
+    background: #f1f1f1;
+    cursor: pointer;
+  }
+
+  &__info {
+    margin-left: auto;
+  }
+}

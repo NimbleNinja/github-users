@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import FirstScreen from './components/first-screen/FirstScreen';
+import SecondScreen from './components/second-screen/SecndScreen';
 
-function App() {
+const App: FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="container">
+        <h2 className="title">GitHub Searcher</h2>
+        <Routes>
+          <Route path="/" element={<FirstScreen />} />
+          <Route path="/:userName" element={<SecondScreen />} />
+        </Routes>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
