@@ -1,6 +1,6 @@
 # GitHub Users for Atlana
 
-Current project version on [Netlify](###).
+Current project version on [GitHub Pages](https://nimbleninja.github.io/github-users/).
 
 ## Description
 
