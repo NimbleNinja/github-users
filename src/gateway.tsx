@@ -1,7 +1,7 @@
 import { IUser } from './dataTypes';
 
 const url = 'https://api.github.com';
-const token = 'token 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';
+const token: any = process.env.GLTOKEN;
 
 export const fetchUsers = async (name: string, page: number) => {
   try {
