@@ -1,7 +1,7 @@
 {
   "name": "github-users",
   "version": "0.1.0",
-  "homepage": "https://NimbleNinja.github.io/github-users/",
+  "homepage": "https://NimbleNinja.github.io/github-users",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
