@@ -1,7 +1,8 @@
+import { atob } from 'buffer';
 import { IUser } from './dataTypes';
 
 const url = 'https://api.github.com';
-const token: any = process.env.GLTOKEN;
+const token = 'Z2hwX3FWUGpETHVXdE9WdUx1UTBNZXN2RjJ0TjRmRFpNRDFqdlZFbwo=';
 
 export const fetchUsers = async (name: string, page: number) => {
   try {
@@ -9,7 +10,7 @@ export const fetchUsers = async (name: string, page: number) => {
       `${url}/search/users?q=${name}+in:login&per_page=15&page=${page}`,
       {
         headers: {
-          Authorization: token,
+          Authorization: atob(token),
           Accept: 'application/vnd.github+json',
         },
       },
@@ -27,7 +28,7 @@ export const fetchUsersWithReposCount = async (users: IUser[]) => {
   const promisesArr = users.map(({ login }) => {
     return fetch(`${url}/users/${login}`, {
       headers: {
-        Authorization: token,
+        Authorization: atob(token),
       },
     }).then(response => response.json());
   });
@@ -41,7 +42,7 @@ export const fetchUser = async (name: string | undefined) => {
   try {
     const response = await fetch(`${url}/users/${name}`, {
       headers: {
-        Authorization: token,
+        Authorization: atob(token),
       },
     });
     return response.json();
@@ -54,7 +55,7 @@ export const fetchUserRepos = async (name: string | undefined, page: number) => 
   try {
     const response = await fetch(`${url}/users/${name}/repos?per_page=10&page=${page}`, {
       headers: {
-        Authorization: token,
+        Authorization: atob(token),
       },
     });
     return response.json();
