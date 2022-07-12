@@ -1,10 +1,15 @@
-import { atob } from 'buffer';
 import { IUser } from './dataTypes';
 
 const url = 'https://api.github.com';
 const token = 'Z2hwX3FWUGpETHVXdE9WdUx1UTBNZXN2RjJ0TjRmRFpNRDFqdlZFbwo=';
 
-const key = Buffer.from(token, 'base64').toString();
+const base64 = require('base-64');
+const utf8 = require('utf8');
+
+const bytes = base64.decode(token);
+const key = utf8.decode(bytes);
+
+// const key = Buffer.from(token, 'base64').toString();
 
 export const fetchUsers = async (name: string, page: number) => {
   try {
