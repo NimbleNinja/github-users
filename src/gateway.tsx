@@ -4,10 +4,8 @@ const url = 'https://api.github.com';
 const token = 'Z2hwX3FWUGpETHVXdE9WdUx1UTBNZXN2RjJ0TjRmRFpNRDFqdlZFbwo=';
 
 const base64 = require('base-64');
-const utf8 = require('utf8');
 
-const bytes = base64.decode(token);
-const key = utf8.decode(bytes);
+const key = base64.decode(token);
 
 // const key = Buffer.from(token, 'base64').toString();
 
