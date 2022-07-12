@@ -1,7 +1,7 @@
 import { IUser } from './dataTypes';
 
 const url = 'https://api.github.com';
-const token = 'token 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';
+const token = 'token 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';
 
 export const fetchUsers = async (name: string, page: number) => {
   try {
@@ -10,6 +10,7 @@ export const fetchUsers = async (name: string, page: number) => {
       {
         headers: {
           Authorization: token,
+          Accept: 'application/vnd.github+json',
         },
       },
     );
