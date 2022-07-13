@@ -36,5 +36,6 @@ module.exports = {
         'prefer-arrow-callback': 1,
         'prefer-default-export': 0,
         'no-unused-vars': 0,
+        'exhaustive-deps': 0
     }
 }
