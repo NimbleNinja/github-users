@@ -10,6 +10,8 @@ const headers = {
 
 export const fetchUsers = async (name: string, page: number) => {
   try {
+    console.log(process.env.REACT_APP_TEST);
+
     const response = await fetch(
       `${url}/search/users?q=${name}+in:login&per_page=15&page=${page}`,
       { headers },
