@@ -1,10 +1,7 @@
-import base64 from 'base-64';
 import { IUser } from './dataTypes';
 
 const url = 'https://api.github.com';
-const token = 'Z2hwX3FWUGpETHVXdE9WdUx1UTBNZXN2RjJ0TjRmRFpNRDFqdlZFbwo=';
-
-const key = base64.decode(token);
+const key = process.env.REACT_APP_TOKEN;
 
 export const fetchUsers = async (name: string, page: number) => {
   try {
@@ -12,7 +9,7 @@ export const fetchUsers = async (name: string, page: number) => {
       `${url}/search/users?q=${name}+in:login&per_page=15&page=${page}`,
       {
         headers: {
-          Authorization: key,
+          Authorization: `token ${key}`,
           Accept: 'application/vnd.github+json',
         },
       },
@@ -30,7 +27,7 @@ export const fetchUsersWithReposCount = async (users: IUser[]) => {
   const promisesArr = users.map(({ login }) => {
     return fetch(`${url}/users/${login}`, {
       headers: {
-        Authorization: key,
+        Authorization: `token ${key}`,
       },
     }).then(response => response.json());
   });
@@ -44,7 +41,7 @@ export const fetchUser = async (name: string | undefined) => {
   try {
     const response = await fetch(`${url}/users/${name}`, {
       headers: {
-        Authorization: key,
+        Authorization: `token ${key}`,
       },
     });
     return response.json();
@@ -57,7 +54,7 @@ export const fetchUserRepos = async (name: string | undefined, page: number) => 
   try {
     const response = await fetch(`${url}/users/${name}/repos?per_page=10&page=${page}`, {
       headers: {
-        Authorization: key,
+        Authorization: `token ${key}`,
       },
     });
     return response.json();
