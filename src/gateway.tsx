@@ -3,8 +3,8 @@ import { IUser } from './dataTypes';
 const url = 'https://api.github.com';
 const key = process.env.REACT_APP_TOKEN;
 
+// Authorization: `token ${key}`,
 const headers = {
-  Authorization: `token ${key}`,
   Accept: 'application/vnd.github+json',
 };
 
